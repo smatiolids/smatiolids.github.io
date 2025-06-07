@@ -1,0 +1,32 @@
+@import "{{ site.theme }}";
+
+.sidebar-content {
+  margin-top: 20px;
+  
+  h3 {
+    color: #494949;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+    
+    li {
+      margin-bottom: 5px;
+      color: #666;
+    }
+  }
+
+  a {
+    color: #267CB9;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+} 

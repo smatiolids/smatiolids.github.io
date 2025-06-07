@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
+
+        {% if site.logo %}
+        <img src="{{site.logo | relative_url}}" alt="Logo" />
+        {% endif %}
+
+        <p>{{ site.description }}</p>
+
+        <!-- Custom sidebar content -->
+        <div class="sidebar-content">
+          <h3>Expertise</h3>
+          <ul>
+            <li>Data Architecture</li>
+            <li>AI Solutions</li>
+            <li>Cloud Computing</li>
+          </ul>
+
+          <h3>Certificações</h3>
+          <ul>
+            <li>AWS Certified Solutions Architect</li>
+            <li>Azure Data Engineer</li>
+            <li>Google Cloud Professional</li>
+          </ul>
+
+          <h3>Links</h3>
+          <p><a href="https://github.com/smatioli">GitHub</a></p>
+          <p><a href="https://linkedin.com/in/samuelmatioli">LinkedIn</a></p>
+          <p><a href="mailto:smatioli@gmail.com">Email</a></p>
+        </div>
+
+      </header>
+      <section>
+      {{ content }}
+      </section>
+      <footer>
+        {% if site.github.is_project_page %}
+        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </body>
+</html> 
