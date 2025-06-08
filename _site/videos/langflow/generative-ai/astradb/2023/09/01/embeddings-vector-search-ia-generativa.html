@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Embeddings e Vector Search para IA Generativa - O que são, como gerar e usar | Samuel Matioli</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Embeddings e Vector Search para IA Generativa - O que são, como gerar e usar" />
+<meta name="author" content="Samuel Matioli" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Embeddings, ou vetores, são parte fundamental das aplicações de inteligência artificial generativa. Neste vídeo, exploramos o que são embeddings, como gerá-los de maneira fácil e difícil, e como utilizar um banco de dados com suporte a Vector Search para encontrar similaridades." />
+<meta property="og:description" content="Embeddings, ou vetores, são parte fundamental das aplicações de inteligência artificial generativa. Neste vídeo, exploramos o que são embeddings, como gerá-los de maneira fácil e difícil, e como utilizar um banco de dados com suporte a Vector Search para encontrar similaridades." />
+<link rel="canonical" href="http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2023/09/01/embeddings-vector-search-ia-generativa.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2023/09/01/embeddings-vector-search-ia-generativa.html" />
+<meta property="og:site_name" content="Samuel Matioli" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-01T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Embeddings e Vector Search para IA Generativa - O que são, como gerar e usar" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samuel Matioli"},"dateModified":"2023-09-01T00:00:00-05:00","datePublished":"2023-09-01T00:00:00-05:00","description":"Embeddings, ou vetores, são parte fundamental das aplicações de inteligência artificial generativa. Neste vídeo, exploramos o que são embeddings, como gerá-los de maneira fácil e difícil, e como utilizar um banco de dados com suporte a Vector Search para encontrar similaridades.","headline":"Embeddings e Vector Search para IA Generativa - O que são, como gerar e usar","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2023/09/01/embeddings-vector-search-ia-generativa.html"},"url":"http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2023/09/01/embeddings-vector-search-ia-generativa.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=81db4756f339382c0a1f3a4da7f37a56b0a4a596">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://0.0.0.0:4000/">Samuel Matioli</a></h1>
+
+        
+
+        <p>Data & AI Architect</p>
+        
+        <p class="view"><a href="/about/">About me</a></p>
+        <p class="view"><a href="https://www.linkedin.com/in/samuelmatioli/">Find me on LinkedIn</a></p>
+        <!-- Sidebar content loaded from about_me.yml -->
+        <div class="sidebar-content">
+          
+          
+          <!-- What I Do Section -->
+          <h2>🔍 What I Do</h2>
+          <ul>
+            
+            <li><p>Design and implement <strong>LLM-based architectures</strong> and <strong>PoCs</strong></p>
+</li>
+            
+            <li><p>Share knowledge through <strong>talks, workshops</strong>, and <strong>technical content</strong></p>
+</li>
+            
+            <li><p>Contribute to <strong>Langflow</strong>, an open-source GenAI development platform</p>
+</li>
+            
+            <li><p>Engage in <strong>pre-sales</strong>, <strong>demand generation</strong>, and <strong>technical strategy</strong></p>
+</li>
+            
+          </ul>
+
+          <!-- Community Section -->
+          <h2>🎤 Community & Content</h2>
+          <ul>
+            
+            <li>
+              📹 <a href="https://www.youtube.com/@samuelmatioli">YouTube Channel</a> – AI tutorials and demos
+            </li>
+            
+            <li>
+              ✍️ <a href="https://samuelmatioli.medium.com">Medium Articles</a> – Insights on GenAI and architecture
+            </li>
+            
+            <li>
+              👥 <a href="https://www.linkedin.com/groups/9504374/">LinkedIn Group</a> – Generative AI Brasil
+            </li>
+            
+          </ul>
+        </div>
+
+      </header>
+      <section>
+      <small>1 September 2023</small>
+<h1>Embeddings e Vector Search para IA Generativa - O que são, como gerar e usar</h1>
+
+<p class="view">by Samuel Matioli</p>
+
+<p>Embeddings, ou vetores, são parte fundamental das aplicações de inteligência artificial generativa. Neste vídeo, exploramos o que são embeddings, como gerá-los de maneira fácil e difícil, e como utilizar um banco de dados com suporte a Vector Search para encontrar similaridades.</p>
+
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/fvRyziDmvoA" width="700" height="480" frameborder="0" allowfullscreen="true">
+  </iframe>
+</div>
+
+<h2 id="principais-pontos">Principais pontos</h2>
+
+<ul>
+  <li>Introdução aos embeddings e sua importância na IA generativa.</li>
+  <li>Explicação sobre Vector Search e sua aplicação.</li>
+  <li>Discussão sobre tokens e tokenização.</li>
+  <li>Apresentação dos modelos de embedding no HuggingFace.</li>
+  <li>Processo de geração de embeddings, incluindo pooling e normalização.</li>
+  <li>Uso de Sentence Transformers para facilitar a geração de embeddings.</li>
+  <li>Armazenamento de vetores no Cassandra e uso da biblioteca Python CassIO.</li>
+  <li>Estrutura de dados para vetores no Cassandra e busca por similaridade.</li>
+</ul>
+
+<h2 id="recursos-adicionais">Recursos adicionais</h2>
+
+<ul>
+  <li><a href="https://bit.ly/41jSOS5">Teste o DataStax Astra para Vector Search</a></li>
+  <li><a href="https://huggingface.co/spaces/mteb/leaderboard">Ranking dos modelos para embedding no Hugging Face</a></li>
+  <li><a href="https://github.com/smatioli/astra-langchain/blob/main/Explicando%20embeddings.ipynb">Notebook explicativo sobre embeddings</a></li>
+  <li><a href="https://www.linkedin.com/in/samuelmatioli/">Perfil do autor no LinkedIn</a></li>
+</ul>
+
+
+
+  <small>tags: <em>IAGenerativa</em> - <em>Cassandra</em> - <em>VectorSearch</em></small>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="https://github.com/smatiolids">smatiolids</a></p>
+        
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html> 

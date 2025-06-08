@@ -18,27 +18,30 @@
         {% endif %}
 
         <p>{{ site.description }}</p>
-
-        <!-- Custom sidebar content -->
+        
+        <p class="view"><a href="{{ '/about/' | relative_url }}">About me</a></p>
+        <p class="view"><a href="https://www.linkedin.com/in/samuelmatioli/">Find me on LinkedIn</a></p>
+        <!-- Sidebar content loaded from about_me.yml -->
         <div class="sidebar-content">
-          <h3>Expertise</h3>
+          {% assign about = site.data.about_me %}
+          
+          <!-- What I Do Section -->
+          <h2>{{ about.what_i_do.title }}</h2>
           <ul>
-            <li>Data Architecture</li>
-            <li>AI Solutions</li>
-            <li>Cloud Computing</li>
+            {% for item in about.what_i_do.items %}
+            <li>{{ item | markdownify }}</li>
+            {% endfor %}
           </ul>
 
-          <h3>Certificações</h3>
+          <!-- Community Section -->
+          <h2>{{ about.community.title }}</h2>
           <ul>
-            <li>AWS Certified Solutions Architect</li>
-            <li>Azure Data Engineer</li>
-            <li>Google Cloud Professional</li>
+            {% for item in about.community.items %}
+            <li>
+              {{ item.icon }} <a href="{{ item.url }}">{{ item.name }}</a> – {{ item.description }}
+            </li>
+            {% endfor %}
           </ul>
-
-          <h3>Links</h3>
-          <p><a href="https://github.com/smatioli">GitHub</a></p>
-          <p><a href="https://linkedin.com/in/samuelmatioli">LinkedIn</a></p>
-          <p><a href="mailto:smatioli@gmail.com">Email</a></p>
         </div>
 
       </header>

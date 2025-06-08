@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AI Agents com Tools na prática com Langchain, OpenAI e DataStax Astra DB | Samuel Matioli</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="AI Agents com Tools na prática com Langchain, OpenAI e DataStax Astra DB" />
+<meta name="author" content="Samuel Matioli" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="🔧 Descubra como os AI Agents funcionam e como eles utilizam ferramentas (tools) para completar processos complexos em aplicações de IA! Neste vídeo, vou te mostrar uma análise detalhada do funcionamento desses agentes, com exemplo prático em Python. Acompanhe o passo a passo da implementação de um agente e veja como ele se compara aos React Agents. Aprenda como usar tools estruturadas e explore uma integração poderosa com o Astra DB. 🚀" />
+<meta property="og:description" content="🔧 Descubra como os AI Agents funcionam e como eles utilizam ferramentas (tools) para completar processos complexos em aplicações de IA! Neste vídeo, vou te mostrar uma análise detalhada do funcionamento desses agentes, com exemplo prático em Python. Acompanhe o passo a passo da implementação de um agente e veja como ele se compara aos React Agents. Aprenda como usar tools estruturadas e explore uma integração poderosa com o Astra DB. 🚀" />
+<link rel="canonical" href="http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2024/11/06/ai-agents-tools-langchain-openai-datastax.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2024/11/06/ai-agents-tools-langchain-openai-datastax.html" />
+<meta property="og:site_name" content="Samuel Matioli" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-11-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AI Agents com Tools na prática com Langchain, OpenAI e DataStax Astra DB" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samuel Matioli"},"dateModified":"2024-11-06T00:00:00-06:00","datePublished":"2024-11-06T00:00:00-06:00","description":"🔧 Descubra como os AI Agents funcionam e como eles utilizam ferramentas (tools) para completar processos complexos em aplicações de IA! Neste vídeo, vou te mostrar uma análise detalhada do funcionamento desses agentes, com exemplo prático em Python. Acompanhe o passo a passo da implementação de um agente e veja como ele se compara aos React Agents. Aprenda como usar tools estruturadas e explore uma integração poderosa com o Astra DB. 🚀","headline":"AI Agents com Tools na prática com Langchain, OpenAI e DataStax Astra DB","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2024/11/06/ai-agents-tools-langchain-openai-datastax.html"},"url":"http://0.0.0.0:4000/videos/langflow/generative-ai/astradb/2024/11/06/ai-agents-tools-langchain-openai-datastax.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=81db4756f339382c0a1f3a4da7f37a56b0a4a596">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://0.0.0.0:4000/">Samuel Matioli</a></h1>
+
+        
+
+        <p>Data & AI Architect</p>
+        
+        <p class="view"><a href="/about/">About me</a></p>
+        <p class="view"><a href="https://www.linkedin.com/in/samuelmatioli/">Find me on LinkedIn</a></p>
+        <!-- Sidebar content loaded from about_me.yml -->
+        <div class="sidebar-content">
+          
+          
+          <!-- What I Do Section -->
+          <h2>🔍 What I Do</h2>
+          <ul>
+            
+            <li><p>Design and implement <strong>LLM-based architectures</strong> and <strong>PoCs</strong></p>
+</li>
+            
+            <li><p>Share knowledge through <strong>talks, workshops</strong>, and <strong>technical content</strong></p>
+</li>
+            
+            <li><p>Contribute to <strong>Langflow</strong>, an open-source GenAI development platform</p>
+</li>
+            
+            <li><p>Engage in <strong>pre-sales</strong>, <strong>demand generation</strong>, and <strong>technical strategy</strong></p>
+</li>
+            
+          </ul>
+
+          <!-- Community Section -->
+          <h2>🎤 Community & Content</h2>
+          <ul>
+            
+            <li>
+              📹 <a href="https://www.youtube.com/@samuelmatioli">YouTube Channel</a> – AI tutorials and demos
+            </li>
+            
+            <li>
+              ✍️ <a href="https://samuelmatioli.medium.com">Medium Articles</a> – Insights on GenAI and architecture
+            </li>
+            
+            <li>
+              👥 <a href="https://www.linkedin.com/groups/9504374/">LinkedIn Group</a> – Generative AI Brasil
+            </li>
+            
+          </ul>
+        </div>
+
+      </header>
+      <section>
+      <small>6 November 2024</small>
+<h1>AI Agents com Tools na prática com Langchain, OpenAI e DataStax Astra DB</h1>
+
+<p class="view">by Samuel Matioli</p>
+
+<p>🔧 Descubra como os AI Agents funcionam e como eles utilizam ferramentas (tools) para completar processos complexos em aplicações de IA! Neste vídeo, vou te mostrar uma análise detalhada do funcionamento desses agentes, com exemplo prático em Python. Acompanhe o passo a passo da implementação de um agente e veja como ele se compara aos React Agents. Aprenda como usar tools estruturadas e explore uma integração poderosa com o Astra DB. 🚀</p>
+
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/J-7bVdAtNzU" width="700" height="480" frameborder="0" allowfullscreen="true">
+  </iframe>
+</div>
+
+<h2 id="principais-pontos">Principais pontos</h2>
+
+<ul>
+  <li>Visão Geral sobre AI Agents e suas funcionalidades.</li>
+  <li>Explicação sobre Tool Calling Agents e suas aplicações.</li>
+  <li>Demonstração prática com código Python.</li>
+  <li>Comparação entre ReACT e Tool Calling Agents.</li>
+  <li>Integração com Astra DB e uso de ferramentas estruturadas.</li>
+  <li>Análise detalhada usando Langsmith.</li>
+</ul>
+
+<h2 id="recursos-adicionais">Recursos adicionais</h2>
+
+<ul>
+  <li><a href="https://github.com/smatiolids/ai-agents-tool-calling">Código do projeto no GitHub</a></li>
+  <li><a href="https://bit.ly/ds-langflow">Explore o DataStax Langflow</a></li>
+</ul>
+
+
+
+  <small>tags: <em>AI Agents</em> - <em>Python</em> - <em>Astra DB</em></small>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="https://github.com/smatiolids">smatiolids</a></p>
+        
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html> 
