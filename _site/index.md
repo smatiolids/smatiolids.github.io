@@ -6,7 +6,7 @@
       <a href="{{ post.url }}">
         {{ post.title }}
         {% if post.language %}
-          <span class="language-tag">{{ post.language }}</span>
+          <span class="language-tag">[{{ post.language }}]</span>
         {% endif %}
       </a>
     </h3>
