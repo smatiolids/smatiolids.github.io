@@ -64,6 +64,20 @@
     }
   }
   
+  .language-tag {
+    display: inline-block;
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 8px;
+    font-weight: normal;
+    &::before {
+      content: "[";
+    }
+    &::after {
+      content: "]";
+    }
+  }
+  
   .post-meta {
     color: #666;
     font-size: 14px;
@@ -93,5 +107,95 @@ hr {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+.certification-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.certification-card {
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  
+  .cert-image {
+    flex: 0 0 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img.cert-badge {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  }
+  
+  .cert-details {
+    flex: 1;
+    text-align: left;
+    
+    h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+      color: #24292e;
+      line-height: 1.4;
+    }
+    
+    .issuer {
+      color: #586069;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      font-weight: 500;
+    }
+    
+    .date {
+      color: #6a737d;
+      font-size: 0.95rem;
+      margin: 0.5rem 0 1rem;
+    }
+    
+    .verify-link {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #0366d6;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background: #035fc7;
+      }
+    }
+  }
+}
+
+// Make it responsive for mobile devices
+@media screen and (max-width: 600px) {
+  .certification-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    
+    .cert-details {
+      text-align: center;
+    }
   }
 }

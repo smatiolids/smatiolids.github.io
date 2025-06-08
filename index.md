@@ -1,10 +1,15 @@
-# Samuel Matioli
-
-## Últimos Posts
+# Latest Posts
 
 {% for post in site.posts %}
   <div class="post-preview">
-    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <h3>
+      <a href="{{ post.url }}">
+        {{ post.title }}
+        {% if post.language %}
+          <span class="language-tag">{{ post.language }}</span>
+        {% endif %}
+      </a>
+    </h3>
     {% if post.thumbnail_url %}
     <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
     <div class="post-thumbnail">

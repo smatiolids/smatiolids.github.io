@@ -1,0 +1,38 @@
+cloud:
+  title: "Cloud Certifications"
+  items:
+    - name: "Google Cloud Associate Cloud Engineer"
+      issuer: "Google Cloud"
+      date: "May/2023"
+      url: "https://google.accredible.com/3d16d8cb-033e-42db-8b8b-0132e52f7f4a"
+      badge_image: "assets/images/google_cloud_logo.jpeg"
+    - name: "AWS Certified Solutions Architect"
+      issuer: "Amazon Web Services"
+      date: "Dec/2022"
+      url: "https://www.credly.com/badges/e89bc05b-20e6-4ccb-acac-fc74de7bca14/linked_in_profile"
+      badge_image: "assets/images/amazon_web_services_logo.jpeg"
+    - name: "AWS Certified Cloud Practitioner"
+      issuer: "Amazon Web Services"   
+      date: "2022"
+      url: "https://www.credly.com/badges/74165751-033e-42db-8b8b-0132e52f7f4a"
+      badge_image: "assets/images/amazon_web_services_logo.jpeg"
+
+other:
+  title: "Other Certifications"
+  items:
+    - name: "Apache Cassandra 3 Developer Associate Certification"
+      issuer: "DataStax"
+      date: "2022"
+      url: "https://certification.mettl.com/datastax/applicant/verify-certification-with-qr?email=smatioli%40gmail.com&assessment=Apache%20Cassandra%203%20Developer%20Associate%20Certification&date=Nov%2015,%202022"
+      badge_image: "assets/images/datastax_logo.jpeg"
+
+    - name: "SAP BPC Business Planning and Consolidation 10.0"
+      issuer: "SAP"
+      date: "2016"
+      badge_image: "assets/images/sap_logo.jpeg"
+    
+    - name: "Cognos 8 BI Data Warehouses"
+      issuer: "IBM"
+      date: "2009"
+      badge_image: "assets/images/ibm_logo.jpeg"
+    
