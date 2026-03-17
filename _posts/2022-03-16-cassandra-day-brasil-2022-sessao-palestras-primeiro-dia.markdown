@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: KQ3Mno3yCMg
 thumbnail_url: https://i.ytimg.com/vi/KQ3Mno3yCMg/mqdefault.jpg
 author: Samuel Matioli
-tags: [Cassandra, NoSQL, DataStax]
+tags: [Apache Cassandra, NoSQL, DataStax]
 language: Portuguese
 ---
 

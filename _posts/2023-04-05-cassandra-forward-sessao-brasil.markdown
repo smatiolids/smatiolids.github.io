@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: fiNLqBhHqDc
 thumbnail_url: https://i.ytimg.com/vi/fiNLqBhHqDc/mqdefault.jpg
 author: Samuel Matioli
-tags: [ApacheCassandra, Netflix, InteligênciaArtificial]
+tags: [Apache Cassandra, Netflix, InteligênciaArtificial]
 language: português
 ---
 

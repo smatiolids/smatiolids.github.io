@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: vnynx9SYdko
 thumbnail_url: https://i.ytimg.com/vi/vnynx9SYdko/mqdefault.jpg
 author: Samuel Matioli
-tags: [langflow, custom components, Astra DB]
+tags: [Langflow, Custom Components, AstraDB]
 language: Portuguese
 ---
 

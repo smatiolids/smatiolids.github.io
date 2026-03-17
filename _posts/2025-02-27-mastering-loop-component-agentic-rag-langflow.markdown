@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: 9Wx7WODSKTo
 thumbnail_url: https://i.ytimg.com/vi/9Wx7WODSKTo/mqdefault.jpg
 author: Samuel Matioli
-tags: [loop-component, agentic-rag, astradb]
+tags: [loop-component, AgenticRAG, AstraDB]
 language: English
 ---
 

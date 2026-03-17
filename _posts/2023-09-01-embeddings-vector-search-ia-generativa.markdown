@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: fvRyziDmvoA
 thumbnail_url: https://i.ytimg.com/vi/fvRyziDmvoA/mqdefault.jpg
 author: Samuel Matioli
-tags: [IAGenerativa, Cassandra, VectorSearch]
+tags: [IAGenerativa, Apache Cassandra, VectorSearch]
 language: Portuguese
 ---
 

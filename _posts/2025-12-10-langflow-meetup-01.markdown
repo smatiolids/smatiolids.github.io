@@ -6,7 +6,7 @@ title: "Langflow Meetup Brasil #01"
 date: 2025-12-10
 categories: [linkedin, social]
 author: Samuel Matioli
-tags: [Post, Langflow]
+tags: [Langflow]
 language: Portuguese
 thumbnail_url: /assets/images/1765156680492.jpeg
 gallery_images:

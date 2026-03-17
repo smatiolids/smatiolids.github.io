@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: c1EdYDx2l0c
 thumbnail_url: https://i.ytimg.com/vi/c1EdYDx2l0c/mqdefault.jpg
 author: Samuel Matioli
-tags: [Cassandra, Astra, Terraform]
+tags: [Apache Cassandra, AstraDB, Terraform]
 language: Portuguese
 ---
 

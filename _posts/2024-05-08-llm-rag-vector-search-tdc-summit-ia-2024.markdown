@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: 1zeMjgzl8Uo
 thumbnail_url: https://i.ytimg.com/vi/1zeMjgzl8Uo/mqdefault.jpg
 author: Samuel Matioli
-tags: [LLM, RAG, Vector Search]
+tags: [LLM, RAG, VectorSearch]
 language: Portuguese
 ---
 

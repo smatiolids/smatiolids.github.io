@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: ssTwv9PAtsQ
 thumbnail_url: https://i.ytimg.com/vi/ssTwv9PAtsQ/mqdefault.jpg
 author: Samuel Matioli
-tags: [Stargate, Cassandra, APIs]
+tags: [Stargate, Apache Cassandra, APIs]
 language: Portuguese
 ---
 

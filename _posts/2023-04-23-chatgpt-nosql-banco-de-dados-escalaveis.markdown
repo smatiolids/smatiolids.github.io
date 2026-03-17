@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: 7N0CQfGBGEo
 thumbnail_url: https://i.ytimg.com/vi/7N0CQfGBGEo/mqdefault.jpg
 author: Samuel Matioli
-tags: [NoSQL, ChatGPT, banco de dados]
+tags: [NoSQL, ChatGPT]
 language: português
 ---
 

@@ -6,7 +6,7 @@ title: "IBM Orchestrate + Astra DB: conectando agentes corporativos à informaç
 date: 2025-12-18
 categories: [astradb, ibm, orchestrate]
 author: Samuel Matioli
-tags: [AI, Watsonx, IBMOrchestrate, VectorSearch, AgenticRAG, AstraDB, IAcorporativa]
+tags: [AI, Watsonx, IBMOrchestrate, VectorSearch, AgenticRAG, AstraDB]
 language: Portuguese
 thumbnail_url: /assets/images/1761583325457.jpeg
 ---

@@ -7,7 +7,7 @@ categories: [videos, langflow, generative-ai, astradb]
 youtubeId: ff8tMErEh88
 thumbnail_url: https://i.ytimg.com/vi/ff8tMErEh88/mqdefault.jpg
 author: Samuel Matioli
-tags: [NoSQL, Big Data, Cassandra]
+tags: [NoSQL, Big Data, Apache Cassandra]
 language: Portuguese
 ---
 
