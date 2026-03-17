@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Is it possible to implement #GraphRAG with a #NoSQL database? Absolutely! | Samuel Matioli</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Is it possible to implement #GraphRAG with a #NoSQL database? Absolutely!" />
+<meta name="author" content="Samuel Matioli" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Data &amp; AI Architect" />
+<meta property="og:description" content="Data &amp; AI Architect" />
+<link rel="canonical" href="http://localhost:4000/astradb/ibm/orchestrate/2026/02/01/ibm-orchestrate-graph-rag.html" />
+<meta property="og:url" content="http://localhost:4000/astradb/ibm/orchestrate/2026/02/01/ibm-orchestrate-graph-rag.html" />
+<meta property="og:site_name" content="Samuel Matioli" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-01T00:00:00-03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Is it possible to implement #GraphRAG with a #NoSQL database? Absolutely!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samuel Matioli"},"dateModified":"2026-02-01T00:00:00-03:00","datePublished":"2026-02-01T00:00:00-03:00","description":"Data &amp; AI Architect","headline":"Is it possible to implement #GraphRAG with a #NoSQL database? Absolutely!","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/astradb/ibm/orchestrate/2026/02/01/ibm-orchestrate-graph-rag.html"},"url":"http://localhost:4000/astradb/ibm/orchestrate/2026/02/01/ibm-orchestrate-graph-rag.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=1a5d3be1fb9f54ff1eacf67a112bcda3fd5c342b">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://localhost:4000/">Samuel Matioli</a></h1>
+
+        
+
+        <p>Data & AI Architect</p>
+        
+        
+        <div class="social-followers">
+          <h2>About Me</h2>
+          <p class="follower-item">
+            <span><a href="https://www.youtube.com/@samuelmatioli" target="_blank" rel="noopener noreferrer">YouTube</a></span>
+            <strong><a href="https://www.youtube.com/@samuelmatioli" target="_blank" rel="noopener noreferrer">1314 followers</a></strong>
+          </p>
+          <p class="follower-item">
+            <span><a href="https://www.linkedin.com/in/samuelmatioli/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+            <strong>9816 followers</strong>
+          </p>
+        </div>
+
+        <div class="tag-cloud">
+          <h2>🏷️ Tags</h2>
+          
+          
+
+          
+
+          
+          
+
+          
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Langflow"
+               class="tag-cloud-item"
+               data-count="9"
+               style="
+                 font-size: 1.18em;
+                 
+                 opacity: 1;
+                 ">
+              #Langflow
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Cassandra"
+               class="tag-cloud-item"
+               data-count="7"
+               style="
+                 font-size: 1.05em;
+                 
+                 opacity: 0.95;
+                 ">
+              #Cassandra
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=RAG"
+               class="tag-cloud-item"
+               data-count="6"
+               style="
+                 font-size: 1.05em;
+                 
+                 opacity: 0.95;
+                 ">
+              #RAG
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=VectorSearch"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #VectorSearch
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Vector+Search"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #Vector Search
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=NoSQL"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #NoSQL
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=IA+Generativa"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #IA Generativa
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Astra+DB"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #Astra DB
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=AstraDB"
+               class="tag-cloud-item"
+               data-count="3"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #AstraDB
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=AI+Agents"
+               class="tag-cloud-item"
+               data-count="3"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #AI Agents
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=OpenAI"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #OpenAI
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=IBMOrchestrate"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #IBMOrchestrate
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=IAGenerativa"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #IAGenerativa
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=DataStax"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #DataStax
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Apache+Cassandra"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #Apache Cassandra
+            </a>
+
+            
+          
+            
+              
+        </div>
+        <!-- Sidebar content loaded from about_me.yml -->
+        <div class="sidebar-content">
+          
+          
+          <!-- What I Do Section -->
+          <h2>🔍 What I Do</h2>
+          <p class="view"><a href="/certifications/">Certifications & Credentials</a></p>
+          <ul>
+            
+            <li><p>Design and implement <strong>LLM-based architectures</strong> and <strong>PoCs</strong></p>
+</li>
+            
+            <li><p>Share knowledge through <strong>talks, workshops</strong>, and <strong>technical content</strong></p>
+</li>
+            
+            <li><p>Contribute to <strong>Langflow</strong>, an open-source GenAI development platform</p>
+</li>
+            
+            <li><p>Engage in <strong>pre-sales</strong>, <strong>demand generation</strong>, and <strong>technical strategy</strong></p>
+</li>
+            
+          </ul>
+
+          <!-- Community Section -->
+          <h2>🎤 Community & Content</h2>
+          <ul>
+            
+            <li>
+              📹 <a href="https://www.youtube.com/@samuelmatioli">YouTube Channel</a> – AI tutorials and demos
+            </li>
+            
+            <li>
+              ✍️ <a href="https://samuelmatioli.medium.com">Medium Articles</a> – Insights on GenAI and architecture
+            </li>
+            
+            <li>
+              👥 <a href="https://www.linkedin.com/groups/9504374/">LinkedIn Group</a> – Generative AI Brasil
+            </li>
+            
+          </ul>
+        </div>
+
+      </header>
+      <section>
+      <small>1 February 2026</small>
+<h1>Is it possible to implement #GraphRAG with a #NoSQL database? Absolutely!</h1>
+
+<p class="view">by Samuel Matioli</p>
+
+<p><img src="/assets/images/1770121959136.jpeg" alt="Article" /></p>
+
+<p>Is it possible to implement #GraphRAG with a #NoSQL database? Absolutely!
+(🇧🇷 below)</p>
+
+<p>We’ve been exploring ways to make AI agents truly useful in enterprise scenarios, and this tutorial presents a very practical approach: combining GraphRAG concepts, using #AstraDB as a scalable vector database, and leveraging watsonx #Orchestrate to coordinate agent workflows.</p>
+
+<p>In this tutorial, created by Adam de Leeuw and me, we walk through everything from setting up the environment in DataStax Astra DB to implementing a web crawler that extracts relationships across product documentation pages and loads them into the database. Then we show how Orchestrate combines GraphRAG and Vector Search to retrieve more relevant content and produce better answers.</p>
+
+<p>The result is an architecture that extends beyond traditional RAG and enables agents that are actually useful for enterprise knowledge scenarios.</p>
+
+<p>If you’re working on agents or applying AI to enterprise knowledge, this architecture is definitely worth exploring.</p>
+
+<p>Thank you, Adam de Leeuw and Ahmed Azraq, for the initiative!</p>
+
+<p>👉 Link is in the comments section.</p>
+
+<p>🇧🇷 É possível implementar #GraphRAG com banco #NoSQL? Sim, é totalmente possível! (english version below…)</p>
+
+<p>Temos explorado formas de tornar agentes de IA realmente úteis em cenários corporativos, e este tutorial mostra um caminho bem prático: combinar conceitos de #GraphRAG, usar o #AstraDB como base vetorial escalável e o watsonx Orchestrate para coordenar os fluxos dos agentes.</p>
+
+<p>No tutorial, criado por Adam de Leeuw e por mim, mostramos o passo a passo desde a criação do ambiente no DataStax Astra DB, passando pela implementação de um web crawler para extrair relacionamentos entre páginas de documentação e carregá-las na base, até a etapa em que o IBM Orchestrate combina GraphRAG e Vector Search para encontrar conteúdo mais relevante e gerar respostas mais precisas.</p>
+
+<p>O resultado é um padrão arquitetural que vai além do RAG tradicional e ajuda a construir agentes realmente úteis para conhecimento corporativo.</p>
+
+<p>Se você está trabalhando com agentes ou IA aplicada ao conhecimento empresarial, vale a pena explorar essa arquitetura.</p>
+
+<p>#GraphRAG #AgenticAI #AstraDB #watsonx #RAG #IAEmpresarial #IAGenerativa</p>
+
+<hr />
+
+<p>(https://developer.ibm.com/tutorials/graphrag-agent-watsonx-orchestrate-astradb/)</p>
+
+<p>Post original no <a href="https://www.linkedin.com/posts/samuelmatioli_astradb-relevaesncia-ai-activity-7388615992790204417-bJY_?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAMTX_8BC83SsHWd5STolNKQZ3nvouAouq0">Linkedin</a></p>
+
+
+
+  <small>tags: <em>AI</em> - <em>IBMOrchestrate</em> - <em>VectorSearch</em> - <em>GraphRAG</em></small>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="https://github.com/smatiolids">smatiolids</a></p>
+        
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html> 

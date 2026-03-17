@@ -1,10 +1,10 @@
 what_i_do:
   title: "🔍 What I Do"
   items:
-    - "Design and implement **LLM-based architectures** and **PoCs**"
-    - "Share knowledge through **talks, workshops**, and **technical content**"
-    - "Contribute to **Langflow**, an open-source GenAI development platform"
-    - "Engage in **pre-sales**, **demand generation**, and **technical strategy**"
+    - "Design and build **LLM-based architectures** and **proofs of concept**"
+    - "Share knowledge through **talks**, **workshops**, and **technical content**"
+    - "Contribute to **Langflow**, an open-source **GenAI platform**"
+    - "Work on **pre-sales**, **demand generation**, and **technical strategy**"
 
 community:
   title: "🎤 Community & Content"
@@ -12,7 +12,7 @@ community:
     - name: "YouTube Channel"
       icon: "📹"
       url: "https://www.youtube.com/@samuelmatioli"
-      description: "AI tutorials and demos"
+      description: "AI tutorials and demonstrations"
     - name: "Medium Articles"
       icon: "✍️"
       url: "https://samuelmatioli.medium.com"
@@ -20,4 +20,4 @@ community:
     - name: "LinkedIn Group"
       icon: "👥"
       url: "https://www.linkedin.com/groups/9504374/"
-      description: "Generative AI Brasil" 
+      description: "Generative AI Brasil"

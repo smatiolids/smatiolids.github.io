@@ -1,0 +1,11 @@
+{
+  "youtube": {
+    "channel_id": "",
+    "api_key": "",
+    "followers_count": 1314
+  },
+  "linkedin": {
+    "followers_endpoint": "",
+    "followers_count": 9816
+  }
+}

@@ -1,0 +1,232 @@
+---
+layout: default
+title: Latest Posts
+---
+
+<h1>Latest Posts</h1>
+
+{% assign posts_list = paginator.posts | default: site.posts %}
+
+<div id="post-feed">
+{% if posts_list and posts_list.size > 0 %}
+  {% for post in posts_list %}
+    {% assign post_tags = "" %}
+    {% for tag in post.tags %}
+      {% assign post_tags = post_tags | append: tag | append: "," %}
+    {% endfor %}
+    <div class="post-preview" data-tags="{{ post_tags }}">
+      <h3>
+        <a href="{{ post.url }}">
+          {{ post.title }}
+          {% if post.language %}
+            <span class="language-tag">[{{ post.language }}]</span>
+          {% endif %}
+        </a>
+      </h3>
+      {% if post.thumbnail_url %}
+      <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+      <div class="post-thumbnail">
+        {% assign thumb = post.thumbnail_url %}
+        {% if thumb contains './_assets/' %}
+          {% assign thumb = thumb | replace: './_assets/', 'assets/' %}
+        {% endif %}
+        {% if thumb contains './' %}
+          {% assign thumb = thumb | remove: './' %}
+        {% endif %}
+        <a href="{{ post.url }}">
+          <img src="{{ thumb | relative_url }}" alt="{{ post.title }}">
+        </a>
+      </div>
+      {% endif %}
+      <a href="{{ post.url }}">Continue lendo...</a>
+    </div>
+    <hr>
+  {% endfor %}
+
+  {% if paginator %}
+    <nav class="pagination" aria-label="Paginação de posts">
+      {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+          <a class="page-link" href="{{ "/" | relative_url }}">← Página anterior</a>
+        {% else %}
+          <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">← Página anterior</a>
+        {% endif %}
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <span class="page-link current">{{ page }}</span>
+        {% elsif page == 1 %}
+          <a class="page-link" href="{{ "/" | relative_url }}">{{ page }}</a>
+        {% else %}
+          <a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Próxima página →</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+{% else %}
+  <p>There are no posts yet.</p>
+{% endif %}
+</div>
+
+<script type="application/json" id="all-posts-data">
+[
+{% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | jsonify }},
+    "date": {{ post.date | date: "%B %d, %Y" | jsonify }},
+    "thumbnail": {% if post.thumbnail_url %}"{{ post.thumbnail_url }}"{% else %}null{% endif %},
+    "language": {% if post.language %}"{{ post.language }}"{% else %}null{% endif %},
+    "tags": [{% for tag in post.tags %}{{ tag | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+</script>
+
+<script>
+  (function () {
+    function decodeTag(value) {
+      return decodeURIComponent((value || "").replace(/\+/g, " "));
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    var selectedTag = decodeTag(params.get("tag") || "");
+
+    function normalizeTagValue(value) {
+      return (value || "").toLowerCase();
+    }
+
+    function normalizeThumb(value) {
+      if (!value) {
+        return "";
+      }
+
+      if (value.indexOf("./_assets/") === 0) {
+        return value.replace(/^\.\/_assets\//, "assets/");
+      }
+
+      return value.replace(/^\.\//, "");
+    }
+
+    var section = document.querySelector("section");
+    var feed = document.getElementById("post-feed");
+    if (!section || !feed) {
+      return;
+    }
+
+    if (!selectedTag) {
+      return;
+    }
+
+    var allPosts = [];
+    try {
+      allPosts = JSON.parse(document.getElementById("all-posts-data").textContent || "[]");
+    } catch (e) {
+      allPosts = [];
+    }
+
+    var selected = normalizeTagValue(selectedTag);
+    var filteredPosts = allPosts.filter(function (post) {
+      return (post.tags || []).map(function (tag) { return normalizeTagValue(tag); }).indexOf(selected) !== -1;
+    });
+
+    while (feed.firstChild) {
+      feed.removeChild(feed.firstChild);
+    }
+
+    if (filteredPosts.length > 0) {
+      filteredPosts.forEach(function (post, index) {
+        var card = document.createElement("div");
+        card.className = "post-preview";
+        card.setAttribute("data-tags", (post.tags || []).join(","));
+
+        var title = document.createElement("h3");
+        var titleLink = document.createElement("a");
+        titleLink.href = post.url;
+
+        var titleText = document.createTextNode(post.title || "");
+        titleLink.appendChild(titleText);
+
+        if (post.language) {
+          var lang = document.createElement("span");
+          lang.className = "language-tag";
+          lang.textContent = "[" + post.language + "]";
+          titleLink.appendChild(document.createTextNode(" "));
+          titleLink.appendChild(lang);
+        }
+
+        title.appendChild(titleLink);
+        card.appendChild(title);
+
+        if (post.thumbnail) {
+          var meta = document.createElement("p");
+          meta.className = "post-meta";
+          meta.textContent = post.date || "";
+          card.appendChild(meta);
+
+          var thumbWrap = document.createElement("div");
+          thumbWrap.className = "post-thumbnail";
+
+          var thumbLink = document.createElement("a");
+          thumbLink.href = post.url;
+
+          var thumbImg = document.createElement("img");
+          thumbImg.src = normalizeThumb(post.thumbnail);
+          thumbImg.alt = post.title || "";
+
+          thumbLink.appendChild(thumbImg);
+          thumbWrap.appendChild(thumbLink);
+          card.appendChild(thumbWrap);
+        }
+
+        var read = document.createElement("a");
+        read.href = post.url;
+        read.textContent = "Continue lendo...";
+        card.appendChild(read);
+
+        feed.appendChild(card);
+
+        if (index < filteredPosts.length - 1) {
+          feed.appendChild(document.createElement("hr"));
+        }
+      });
+    }
+
+    var oldPosts = document.querySelectorAll(".post-preview");
+    if (!oldPosts || !oldPosts.length) {
+      // keep logic compatible if feed was empty in template
+    }
+
+    var header = document.querySelector("h1");
+    if (header) {
+      header.textContent = "Latest Posts - Tag: " + selectedTag;
+    }
+
+    var pagination = document.querySelector(".pagination");
+    if (pagination) {
+      pagination.style.display = "none";
+    }
+
+    if (!filteredPosts.length) {
+      var noResult = document.createElement("p");
+      noResult.className = "no-posts-found";
+      noResult.textContent = "No posts found for tag \"" + selectedTag + "\".";
+      feed.appendChild(noResult);
+    }
+
+    var clearLink = document.createElement("a");
+    clearLink.href = "/";
+    clearLink.textContent = "Clear tag filter";
+    clearLink.className = "tag-clear-filter";
+
+    var sectionHeader = document.querySelector("h1");
+    if (sectionHeader && sectionHeader.parentNode) {
+      sectionHeader.insertAdjacentElement("afterend", clearLink);
+    }
+  })();
+</script>

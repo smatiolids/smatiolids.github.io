@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>IBM Orchestrate + Astra DB: conectando agentes corporativos à informação | Samuel Matioli</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="IBM Orchestrate + Astra DB: conectando agentes corporativos à informação" />
+<meta name="author" content="Samuel Matioli" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Como conectar agentes corporativos a dados relevantes? Este é o objetivo da integração entre o IBM Orchestrate, plataforma para criação de agentes de IA da IBM para uso em ambiente enterprise, e o Astra DB, um NoSQL + Vector baseado em Cassandra, voltado à alta escala, à disponibilidade e, principalmente, à relevância." />
+<meta property="og:description" content="Como conectar agentes corporativos a dados relevantes? Este é o objetivo da integração entre o IBM Orchestrate, plataforma para criação de agentes de IA da IBM para uso em ambiente enterprise, e o Astra DB, um NoSQL + Vector baseado em Cassandra, voltado à alta escala, à disponibilidade e, principalmente, à relevância." />
+<link rel="canonical" href="http://localhost:4000/astradb/ibm/orchestrate/2025/12/18/ibm-orchestrate-astra-db.html" />
+<meta property="og:url" content="http://localhost:4000/astradb/ibm/orchestrate/2025/12/18/ibm-orchestrate-astra-db.html" />
+<meta property="og:site_name" content="Samuel Matioli" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-18T00:00:00-03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="IBM Orchestrate + Astra DB: conectando agentes corporativos à informação" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samuel Matioli"},"dateModified":"2025-12-18T00:00:00-03:00","datePublished":"2025-12-18T00:00:00-03:00","description":"Como conectar agentes corporativos a dados relevantes? Este é o objetivo da integração entre o IBM Orchestrate, plataforma para criação de agentes de IA da IBM para uso em ambiente enterprise, e o Astra DB, um NoSQL + Vector baseado em Cassandra, voltado à alta escala, à disponibilidade e, principalmente, à relevância.","headline":"IBM Orchestrate + Astra DB: conectando agentes corporativos à informação","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/astradb/ibm/orchestrate/2025/12/18/ibm-orchestrate-astra-db.html"},"url":"http://localhost:4000/astradb/ibm/orchestrate/2025/12/18/ibm-orchestrate-astra-db.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=1a5d3be1fb9f54ff1eacf67a112bcda3fd5c342b">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://localhost:4000/">Samuel Matioli</a></h1>
+
+        
+
+        <p>Data & AI Architect</p>
+        
+        
+        <div class="social-followers">
+          <h2>About Me</h2>
+          <p class="follower-item">
+            <span><a href="https://www.youtube.com/@samuelmatioli" target="_blank" rel="noopener noreferrer">YouTube</a></span>
+            <strong><a href="https://www.youtube.com/@samuelmatioli" target="_blank" rel="noopener noreferrer">1314 followers</a></strong>
+          </p>
+          <p class="follower-item">
+            <span><a href="https://www.linkedin.com/in/samuelmatioli/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+            <strong>9816 followers</strong>
+          </p>
+        </div>
+
+        <div class="tag-cloud">
+          <h2>🏷️ Tags</h2>
+          
+          
+
+          
+
+          
+          
+
+          
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Langflow"
+               class="tag-cloud-item"
+               data-count="9"
+               style="
+                 font-size: 1.18em;
+                 
+                 opacity: 1;
+                 ">
+              #Langflow
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Cassandra"
+               class="tag-cloud-item"
+               data-count="7"
+               style="
+                 font-size: 1.05em;
+                 
+                 opacity: 0.95;
+                 ">
+              #Cassandra
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=RAG"
+               class="tag-cloud-item"
+               data-count="6"
+               style="
+                 font-size: 1.05em;
+                 
+                 opacity: 0.95;
+                 ">
+              #RAG
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=VectorSearch"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #VectorSearch
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Vector+Search"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #Vector Search
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=NoSQL"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #NoSQL
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=IA+Generativa"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #IA Generativa
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Astra+DB"
+               class="tag-cloud-item"
+               data-count="4"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #Astra DB
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=AstraDB"
+               class="tag-cloud-item"
+               data-count="3"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #AstraDB
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=AI+Agents"
+               class="tag-cloud-item"
+               data-count="3"
+               style="
+                 font-size: 0.9em;
+                 
+                 opacity: 0.85;
+                 ">
+              #AI Agents
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=OpenAI"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #OpenAI
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=IBMOrchestrate"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #IBMOrchestrate
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=IAGenerativa"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #IAGenerativa
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=DataStax"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #DataStax
+            </a>
+
+            
+          
+            
+
+            
+            
+            
+            
+
+            <a href="/?tag=Apache+Cassandra"
+               class="tag-cloud-item"
+               data-count="2"
+               style="
+                 font-size: 0.84em;
+                 
+                 opacity: 0.8;
+                 ">
+              #Apache Cassandra
+            </a>
+
+            
+          
+            
+              
+        </div>
+        <!-- Sidebar content loaded from about_me.yml -->
+        <div class="sidebar-content">
+          
+          
+          <!-- What I Do Section -->
+          <h2>🔍 What I Do</h2>
+          <p class="view"><a href="/certifications/">Certifications & Credentials</a></p>
+          <ul>
+            
+            <li><p>Design and implement <strong>LLM-based architectures</strong> and <strong>PoCs</strong></p>
+</li>
+            
+            <li><p>Share knowledge through <strong>talks, workshops</strong>, and <strong>technical content</strong></p>
+</li>
+            
+            <li><p>Contribute to <strong>Langflow</strong>, an open-source GenAI development platform</p>
+</li>
+            
+            <li><p>Engage in <strong>pre-sales</strong>, <strong>demand generation</strong>, and <strong>technical strategy</strong></p>
+</li>
+            
+          </ul>
+
+          <!-- Community Section -->
+          <h2>🎤 Community & Content</h2>
+          <ul>
+            
+            <li>
+              📹 <a href="https://www.youtube.com/@samuelmatioli">YouTube Channel</a> – AI tutorials and demos
+            </li>
+            
+            <li>
+              ✍️ <a href="https://samuelmatioli.medium.com">Medium Articles</a> – Insights on GenAI and architecture
+            </li>
+            
+            <li>
+              👥 <a href="https://www.linkedin.com/groups/9504374/">LinkedIn Group</a> – Generative AI Brasil
+            </li>
+            
+          </ul>
+        </div>
+
+      </header>
+      <section>
+      <small>18 December 2025</small>
+<h1>IBM Orchestrate + Astra DB: conectando agentes corporativos à informação</h1>
+
+<p class="view">by Samuel Matioli</p>
+
+<p>Como conectar agentes corporativos a dados relevantes? Este é o objetivo da integração entre o <strong>IBM Orchestrate</strong>, plataforma para criação de agentes de IA da IBM para uso em ambiente enterprise, e o <strong>Astra DB</strong>, um NoSQL + Vector baseado em Cassandra, voltado à alta escala, à disponibilidade e, principalmente, à relevância.</p>
+
+<p>Neste tutorial, criado por mim e pela <strong>Gabriela Pirillo Manoel</strong>, você aprende a usar essa combinação para construir agentes com capacidades <strong>agentic-RAG</strong> (<em>Retrieval-Augmented Generation</em>), conectando modelos de linguagem a dados empresariais de forma eficiente e segura.</p>
+
+<p>Confira mais em: <a href="https://lnkd.in/dUcxDB_F">site da IBM</a></p>
+
+<p>Thank you, Ahmed Azraq, for the opportunity to contribute to this content!</p>
+
+<p><img src="/assets/images/1761583325457.jpeg" alt="Article" /></p>
+
+<hr />
+
+<p>Post original no <a href="https://www.linkedin.com/posts/samuelmatioli_astradb-relevaesncia-ai-activity-7388615992790204417-bJY_?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAMTX_8BC83SsHWd5STolNKQZ3nvouAouq0">Linkedin</a></p>
+
+
+
+  <small>tags: <em>AI</em> - <em>Watsonx</em> - <em>IBMOrchestrate</em> - <em>VectorSearch</em> - <em>AgenticRAG</em> - <em>AstraDB</em> - <em>IAcorporativa</em></small>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="https://github.com/smatiolids">smatiolids</a></p>
+        
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html> 

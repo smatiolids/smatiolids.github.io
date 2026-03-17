@@ -19,15 +19,93 @@
 
         <p>{{ site.description }}</p>
         
-        <p class="view"><a href="{{ '/about/' | relative_url }}">About me</a></p>
-        <p class="view"><a href="{{ '/certifications/' | relative_url }}">Certifications</a></p>
-        <p class="view"><a href="https://www.linkedin.com/in/samuelmatioli/">Find me on LinkedIn</a></p>
+        {% assign follower_stats = site.data["sidebar-followers"] %}
+        <div class="social-followers">
+          <h2>About Me</h2>
+          <p class="follower-item">
+            <span><a href="https://www.youtube.com/@samuelmatioli" target="_blank" rel="noopener noreferrer">YouTube</a></span>
+            <strong><a href="https://www.youtube.com/@samuelmatioli" target="_blank" rel="noopener noreferrer">{{ follower_stats.youtube.followers_count | default: "--" }} followers</a></strong>
+          </p>
+          <p class="follower-item">
+            <span><a href="https://www.linkedin.com/in/samuelmatioli/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+            <strong>{{ follower_stats.linkedin.followers_count | default: "--" }} followers</strong>
+          </p>
+        </div>
+
+        <div class="tag-cloud">
+          <h2>🏷️ Tags</h2>
+          {% assign max_count = 0 %}
+          {% assign tag_items = "" %}
+
+          {% for tag_item in site.tags %}
+            {% assign tag_name = tag_item[0] %}
+            {% assign tag_count = 0 %}
+            {% for post in site.posts %}
+              {% if post.tags contains tag_name %}
+                {% assign tag_count = tag_count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+
+            {% if tag_count > 0 %}
+              {% assign count_key = tag_count | prepend: "000" | slice: -3, 3 %}
+              {% assign tag_entry = count_key | append: "|" | append: tag_name %}
+              {% if tag_items == "" %}
+                {% assign tag_items = tag_entry %}
+              {% else %}
+                {% assign tag_items = tag_items | append: "," | append: tag_entry %}
+              {% endif %}
+
+              {% if tag_count > max_count %}
+                {% assign max_count = tag_count %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% assign sorted_tag_items = tag_items | split: "," | sort %}
+          {% if max_count == 0 %}
+            {% assign max_count = 1 %}
+          {% endif %}
+
+          {% assign visible_count = 0 %}
+          {% for tag_entry in sorted_tag_items reversed %}
+            {% if visible_count >= 15 %}
+              {% break %}
+            {% endif %}
+
+            {% assign entry_parts = tag_entry | split: "|" %}
+            {% assign tag_count = entry_parts[0] | plus: 0 %}
+            {% assign tag_name = entry_parts[1] %}
+            {% assign percent = tag_count | times: 100 | divided_by: max_count %}
+
+            <a href="{{ '/' | relative_url }}?tag={{ tag_name | url_encode }}"
+               class="tag-cloud-item"
+               data-count="{{ tag_count }}"
+               style="
+                 {% if percent >= 80 %}font-size: 1.18em;
+                 {% elsif percent >= 65 %}font-size: 1.05em;
+                 {% elsif percent >= 45 %}font-size: 0.96em;
+                 {% elsif percent >= 30 %}font-size: 0.9em;
+                 {% else %}font-size: 0.84em;
+                 {% endif %}
+                 opacity: {% if percent >= 80 %}1;
+                 {% elsif percent >= 65 %}0.95;
+                 {% elsif percent >= 45 %}0.9;
+                 {% elsif percent >= 30 %}0.85;
+                 {% else %}0.8;
+                 {% endif %}">
+              #{{ tag_name }}
+            </a>
+
+            {% assign visible_count = visible_count | plus: 1 %}
+          {% endfor %}
+        </div>
         <!-- Sidebar content loaded from about_me.yml -->
         <div class="sidebar-content">
           {% assign about = site.data.about_me %}
           
           <!-- What I Do Section -->
           <h2>{{ about.what_i_do.title }}</h2>
+          <p class="view"><a href="{{ '/certifications/' | relative_url }}">Certifications & Credentials</a></p>
           <ul>
             {% for item in about.what_i_do.items %}
             <li>{{ item | markdownify }}</li>
