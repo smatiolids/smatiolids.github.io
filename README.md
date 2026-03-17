@@ -11,6 +11,12 @@ Access it on: [https://smatiolids.github.io/](https://smatiolids.github.io/index
 docker compose up -d
 ```
 
+## Running Locally
+
+```bash
+bundle exec jekyll serve --livereload --incremental
+```
+
 ## Generate posts
 
 This script will generate posts for all videos in the `youtube_videos.txt` file.
