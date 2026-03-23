@@ -14,7 +14,8 @@ docker compose up -d
 ## Running Locally
 
 ```bash
-bundle exec jekyll serve --livereload --incremental
+bundle exec jekyll serve --livereload
+
 ```
 
 ## Generate posts
